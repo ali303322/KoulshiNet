@@ -1,7 +1,7 @@
 // import React from 'react'
 import Footer from './Footer';
 import  Header from './Header';
-
+import img4 from './image/img4.jpeg'
 export default function AboutPage() {
   return (
     <>
@@ -9,7 +9,7 @@ export default function AboutPage() {
            {/* Hero Section */}
             <section
                 className="relative h-[400px] bg-cover bg-center"
-                style={{ backgroundImage: "url('image/img4.jpeg')" }}
+                style={{ backgroundImage: `url(${img4})` }}
             >
                 {/* Dark overlay */}
                 <div className="absolute inset-0 bg-black bg-opacity-50"></div>
@@ -259,7 +259,7 @@ export default function AboutPage() {
             </div>
         </div>
         </section>
-        <Footer/> 
+        <Footer/>
 
         </>
   )

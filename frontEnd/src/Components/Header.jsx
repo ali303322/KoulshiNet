@@ -1,6 +1,6 @@
-import React,{ useState } from 'react'
+import { useState } from 'react'
 import { Link } from 'react-router-dom';
-
+import logo from './image/Koulshinet.com (1).png';
 export default function Header() {
     const [langDropdownOpen, setLangDropdownOpen] = useState(false);
 
@@ -15,7 +15,7 @@ export default function Header() {
                     {/* Logo */}
                     <Link to="/" className="flex items-center">
                         <img
-                            src="image/Koulshinet.com (1).png"
+                            src={logo}
                             alt="Koulchinet.com"
                             className="h-[200px] w-auto absolute -top-12 left-0 object-contain filter contrast-125 brightness-105
                             [image-rendering:crisp-edges]
@@ -25,17 +25,17 @@ export default function Header() {
 
                     {/* Main Navigation */}
                     <nav className="flex items-center space-x-8 ml-52">
-                        <Link to="/apropo" className="text-gray-700 hover:text-blue-600">A propos</Link>
-                        <Link to="/header" className="text-gray-700 hover:text-blue-600">Accueil</Link>
-                        <Link to="/service" className="text-gray-700 hover:text-blue-600">Nos services</Link>
-                        <Link to="/devenirprestataire" className="text-gray-700 hover:text-blue-600">Devenir prestataire</Link>
+                        <Link to="/AboutUs" className="text-gray-700 hover:text-blue-600">A propos</Link>
+                        <Link to="/" className="text-gray-700 hover:text-blue-600">Accueil</Link>
+                        <Link to="/services" className="text-gray-700 hover:text-blue-600">Nos services</Link>
+                        <Link to="/DevenirePrestataire" className="text-gray-700 hover:text-blue-600">Devenir prestataire</Link>
                         <Link to="/marketplace" className="text-gray-700 hover:text-blue-600">Marketplace</Link>
                     </nav>
 
                     {/* Right Side Navigation */}
                     <div className="flex items-center space-x-6">
                         <Link to="/login" className="text-gray-700 hover:text-blue-600">Se connecter</Link>
-                        <Link to="/signin" className="bg-[#4052B4] text-white px-4 py-2 rounded hover:bg-blue-700">S'inscrire</Link>
+                        <Link to="/SignIn" className="bg-[#4052B4] text-white px-4 py-2 rounded hover:bg-blue-700">S&rsquo;inscrire</Link>
 
                         {/* Language Dropdown */}
                         <div className="relative">
