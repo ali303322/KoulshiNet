@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Détails du Contenu</title>
+    
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <!-- Alpine.js -->
+    <script defer src="https://unpkg.com/alpinejs@3.x.x/dist/cdn.min.js"></script>
+    
+    <!-- Font Awesome -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
+</head>
+<body class="bg-gray-100">
+    <div class="flex min-h-screen">
+        <!-- Sidebar -->
+        <div class="w-80 bg-[#4a69bd] text-white">
+            <nav class="pt-12 px-16">
+                <!-- Demande -->
+                <a href="admindash.html" class="flex items-center space-x-4 text-lg mb-12">
+                    <i class="fas fa-file-alt w-6"></i>
+                    <span>Demande</span>
+                </a>
+
+                <!-- Gestion des prestataires -->
+                <a href="gestionPres.html" class="flex items-center space-x-4 text-lg mb-12">
+                    <i class="fas fa-users w-6"></i>
+                    <span>Gestion des prestataires</span>
+                </a>
+
+                <!-- Gestion des clients -->
+                <a href="gestionClient.html" class="flex items-center space-x-4 text-lg mb-12">
+                    <i class="fas fa-user-friends w-6"></i>
+                    <span>Gestion des clients</span>
+                </a>
+
+                <!-- Gestion des produits -->
+                <a href="gestionProduit.html" class="flex items-center space-x-4 text-lg mb-12">
+                    <i class="fas fa-box w-6"></i>
+                    <span>Gestion des produits</span>
+                </a>
+
+                <!-- Gestion de contenu -->
+                <a href="gestionContenu.html" class="flex items-center space-x-4 text-lg mb-12">
+                    <i class="fas fa-file-alt w-6"></i>
+                    <span>Gestion de contenu</span>
+                </a>
+
+                <!-- Logout Link -->
+                <div class="mt-auto pt-32">
+                    <a href="apropo.html" class="flex items-center space-x-4 text-lg text-white/80 hover:text-white">
+                        <i class="fas fa-sign-out-alt w-6"></i>
+                        <span>Se déconnecter</span>
+                    </a>
+                </div>
+            </nav>
+        </div>
+
+        <!-- Main Content -->
+        <div class="flex-1 p-8">
+            <div class="bg-white rounded-lg shadow-sm">
+                <!-- Header -->
+                <div class="px-6 py-4 flex justify-between items-center border-b">
+                    <h3 class="text-xl font-medium text-[#4a69bd]">Services Evénements</h3>
+                    <button class="px-4 py-2 bg-[#f6ad55] text-white rounded hover:bg-[#ed8936] transition duration-200">
+                        <a href="addcontenu.html">Add service</a>
+                    </button>
+                </div>
+
+                <!-- Services List -->
+                <div class="p-6">
+                    <table class="w-full">
+                        <thead>
+                            <tr>
+                                <th class="text-left py-4 px-6 font-medium text-gray-700">Service name</th>
+                                <th class="text-right py-4 px-6 font-medium text-gray-700">Action</th>
+                            </tr>
+                        </thead>
+                        <tbody class="divide-y divide-gray-200">
+                            <tr>
+                                <td class="py-4 px-6">Contrôle des nuisibles</td>
+                                <td class="py-4 px-6 text-right">
+                                    <a href="editcontenu.html" class="text-[#4a69bd] hover:text-blue-700">Edit</a>
+                                    <a href="#" class="text-red-500 hover:text-red-700 ml-4">Delete</a>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td class="py-4 px-6">Coiffeur à domicile</td>
+                                <td class="py-4 px-6 text-right">
+                                    <a href="#" class="text-[#4a69bd] hover:text-blue-700">Edit</a>
+                                    <a href="#" class="text-red-500 hover:text-red-700 ml-4">Delete</a>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td class="py-4 px-6">Plomberie</td>
+                                <td class="py-4 px-6 text-right">
+                                    <a href="#" class="text-[#4a69bd] hover:text-blue-700">Edit</a>
+                                    <a href="#" class="text-red-500 hover:text-red-700 ml-4">Delete</a>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td class="py-4 px-6">Électricité</td>
+                                <td class="py-4 px-6 text-right">
+                                    <a href="#" class="text-[#4a69bd] hover:text-blue-700">Edit</a>
+                                    <a href="#" class="text-red-500 hover:text-red-700 ml-4">Delete</a>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td class="py-4 px-6">Jardinage</td>
+                                <td class="py-4 px-6 text-right">
+                                    <a href="#" class="text-[#4a69bd] hover:text-blue-700">Edit</a>
+                                    <a href="#" class="text-red-500 hover:text-red-700 ml-4">Delete</a>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+
+                    <!-- Pagination -->
+                    <div class="flex justify-center mt-6 space-x-2">
+                        <button class="px-4 py-2 bg-[#4a69bd] text-white rounded disabled:bg-gray-400" disabled>Précédent</button>
+                        <button class="px-4 py-2 bg-[#4a69bd] text-white rounded">1</button>
+                        <button class="px-4 py-2 bg-[#4a69bd] text-white rounded">2</button>
+                        <button class="px-4 py-2 bg-[#4a69bd] text-white rounded">3</button>
+                        <button class="px-4 py-2 bg-[#4a69bd] text-white rounded">Suivant</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

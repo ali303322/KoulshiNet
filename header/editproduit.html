@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Edit Product</title>
+    
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <!-- Alpine.js -->
+    <script defer src="https://unpkg.com/alpinejs@3.x.x/dist/cdn.min.js"></script>
+    
+    <!-- Font Awesome -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
+</head>
+<body class="bg-gray-100">
+    <div class="flex min-h-screen">
+        <!-- Sidebar -->
+        <div class="w-80 bg-[#4a69bd] text-white">
+            <nav class="pt-12 px-16">
+                <!-- Demande -->
+                <a href="admindash.html" class="flex items-center space-x-4 text-lg mb-12">
+                    <i class="fas fa-file-alt w-6"></i>
+                    <span>Demande</span>
+                </a>
+
+                <!-- Gestion des prestataires -->
+                <a href="gestionPres.html" class="flex items-center space-x-4 text-lg mb-12">
+                    <i class="fas fa-users w-6"></i>
+                    <span>Gestion des prestataires</span>
+                </a>
+
+                <!-- Gestion des clients -->
+                <a href="gestionClient.html" class="flex items-center space-x-4 text-lg mb-12">
+                    <i class="fas fa-user-friends w-6"></i>
+                    <span>Gestion des clients</span>
+                </a>
+
+                <!-- Gestion des produits -->
+                <a href="gestionProduit.html" class="flex items-center space-x-4 text-lg mb-12">
+                    <i class="fas fa-box w-6"></i>
+                    <span>Gestion des produits</span>
+                </a>
+
+                <!-- Gestion de contenu -->
+                <a href="gestionContenu.html" class="flex items-center space-x-4 text-lg mb-12">
+                    <i class="fas fa-file-alt w-6"></i>
+                    <span>Gestion de contenu</span>
+                </a>
+
+                <!-- Logout Link -->
+                <div class="mt-auto pt-32">
+                    <a href="apropo.html" class="flex items-center space-x-4 text-lg text-white/80 hover:text-white">
+                        <i class="fas fa-sign-out-alt w-6"></i>
+                        <span>Se déconnecter</span>
+                    </a>
+                </div>
+            </nav>
+        </div>
+
+        <!-- Main Content -->
+        <div class="flex-1 p-8 flex items-center justify-center">
+            <div class="relative p-6 border w-[1000px] shadow-lg rounded-lg bg-white">
+                <!-- Title -->
+                <h3 class="text-[#4a69bd] font-medium mb-6">Edit product:</h3>
+                
+                <!-- Form -->
+                <div class="space-y-6">
+                    <!-- Labels Row -->
+                    <div class="flex justify-between px-2">
+                        <label class="text-sm w-44 text-center">Product image:</label>
+                        <label class="text-sm w-44 text-center">Product name:</label>
+                        <label class="text-sm w-44 text-center">Product category:</label>
+                        <label class="text-sm w-44 text-center">Product link:</label>
+                        <label class="text-sm w-44 text-center">Product Price:</label>
+                    </div>
+
+                    <!-- Input Fields Row -->
+                    <div class="flex justify-between space-x-4">
+                        <!-- Upload Media -->
+                        <div class="relative w-44">
+                            <input type="file" class="hidden" id="productImage">
+                            <label for="productImage" 
+                                   class="flex items-center px-4 py-2 border rounded-full cursor-pointer hover:bg-gray-50 w-full">
+                                <span class="text-gray-500 text-sm">Upload media</span>
+                                <i class="fas fa-cloud-upload-alt ml-2 text-gray-400"></i>
+                            </label>
+                        </div>
+
+                        <!-- Product Name -->
+                        <input type="text" 
+                               value="Current Product Name"
+                               class="border rounded-full px-4 py-2 text-sm w-44">
+
+                        <!-- Product Category -->
+                        <select class="border rounded-full px-4 py-2 text-sm w-44">
+                            <option value="domestique">domestique</option>
+                            <option value="decoration">decoration</option>
+                            <option value="résidentielles">résidentielles</option>
+                        </select>
+
+                        <!-- Product Link -->
+                        <input type="text" 
+                               value="Current Product Link"
+                               class="border rounded-full px-4 py-2 text-sm w-44">
+
+                        <!-- Product Price -->
+                        <input type="text" 
+                               value="Current Price"
+                               class="border rounded-full px-4 py-2 text-sm w-44">
+                    </div>
+
+                    <!-- Save Button -->
+                    <div class="flex justify-center mt-8">
+                        <button type="button" 
+                                class="px-12 py-2 bg-[#4a69bd] text-white rounded-full text-sm">
+                            <a href="gestionProduit.html">Save</a>
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

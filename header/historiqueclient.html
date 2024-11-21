@@ -1,0 +1,288 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Koulchinet</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="//unpkg.com/alpinejs" defer></script>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        sans: ['Roboto', 'sans-serif'],
+                    },
+                },
+            },
+        }
+    </script>
+</head>
+
+<body class="bg-gray-100 font-sans">
+    <!-- Header Section -->
+    <header class="bg-white w-full h-[70px] shadow-sm">
+        <div class="container mx-auto px-4 h-full">
+            <div class="flex items-center justify-between h-full">
+                <!-- Logo -->
+                <a href="/" class="flex items-center">
+                    <img src="image/Koulshinet.com (1).png" alt="Koulchinet.com" class="h-[200px] w-auto absolute -top-12 left-0 object-contain 
+                    filter contrast-125 brightness-105
+                    [image-rendering:crisp-edges]
+                    [image-rendering:-webkit-optimize-contrast]">
+                </a>
+
+                <!-- Right Side Navigation -->
+                <div class="flex items-center space-x-10">
+                    <!-- Language Dropdown -->
+                    <div class="relative">
+                        <button id="langBtn" class="flex items-center text-black hover:text-blue-600 font-bold text-lg">
+                            Fr
+                            <svg class="w-5 h-5 ml-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
+                            </svg>
+                        </button>
+                        <div id="langDropdown" class="absolute right-0 mt-2 w-16 bg-white rounded-md shadow-lg py-1 z-50 hidden">
+                            <a href="#" class="flex items-center px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 font-bold">Fr</a>
+                            <a href="#" class="flex items-center px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 font-bold">En</a>
+                            <a href="#" class="flex items-center px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 font-bold">Ar</a>
+                        </div>
+                    </div>
+
+                    <!-- Notification Bell -->
+                    <button class="text-[#4a69bd] hover:text-blue-600 relative">
+                        <i class="fas fa-bell text-2xl"></i>
+                        <span class="absolute -top-2 -right-2 bg-red-500 text-white text-xs rounded-full w-5 h-5 flex items-center justify-center">
+                            3
+                        </span>
+                    </button>
+
+                    <!-- Chat Icon -->
+                    <button class="text-[#4a69bd] hover:text-blue-600 relative">
+                        <i class="fas fa-comment-dots text-2xl"></i>
+                        <span class="absolute -top-2 -right-2 bg-red-500 text-white text-xs rounded-full w-5 h-5 flex items-center justify-center">
+                            2
+                        </span>
+                    </button>
+
+                    <!-- Profile Picture -->
+                    <div class="relative">
+                        <button class="flex items-center space-x-3">
+                            <img src="image/img3.png" alt="Profile" class="w-16 h-16 rounded-full object-cover">
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <script>
+        // Language dropdown toggle
+        const langBtn = document.getElementById('langBtn');
+        const langDropdown = document.getElementById('langDropdown');
+
+        langBtn.addEventListener('click', () => {
+            langDropdown.classList.toggle('hidden');
+        });
+
+        // Close dropdown when clicking outside
+        window.addEventListener('click', (e) => {
+            if (!langBtn.contains(e.target)) {
+                langDropdown.classList.add('hidden');
+            }
+        });
+    </script>
+
+    <!-- Main Content -->
+    <div class="flex min-h-screen">
+        <!-- Sidebar - Adjusted to match the picture -->
+        <div class="w-80 bg-[#4a69bd] text-white">
+            <nav class="pt-12 px-16">
+                <!-- Profile Link -->
+                <a href="clientdash.html" class="flex items-center space-x-4 text-lg mb-12">
+                    <i class="fas fa-user w-6"></i>
+                    <span>Profil</span>
+                </a>
+
+                <!-- Messages Link -->
+                <a href="#" class="flex items-center space-x-4 text-lg mb-12">
+                    <i class="fas fa-envelope w-6"></i>
+                    <span>Messages</span>
+                </a>
+
+                <!-- Security Link -->
+                <a href="securiteclient.html" class="flex items-center space-x-4 text-lg mb-12">
+                    <i class="fas fa-lock w-6"></i>
+                    <span>Sécurité</span>
+                </a>
+
+                <!-- History Link -->
+                <a href="historiqueclient.html" class="flex items-center space-x-4 text-lg mb-12">
+                    <i class="fas fa-history w-6"></i>
+                    <span>historique</span>
+                </a>
+
+                <!-- Logout Link -->
+                <div class="mt-auto pt-32">
+                    <a href="apropo.html" class="flex items-center space-x-4 text-lg text-white/80 hover:text-white">
+                        <i class="fas fa-sign-out-alt w-6"></i>
+                        <span>Se déconnecter</span>
+                    </a>
+                </div>
+            </nav>
+        </div>
+
+        <!-- Main Content Area - Add this after the sidebar div -->
+        <div class="flex-1 p-8">
+            <div class="bg-white rounded-lg shadow-sm p-6">
+                <h2 class="text-[#4a69bd] text-xl font-medium mb-6">Historique</h2>
+                
+                <!-- Search Bar -->
+                <div class="flex justify-between mb-6">
+                    <input type="text" 
+                           placeholder="Rechercher..." 
+                           class="w-2/3 px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-[#4a69bd] focus:border-[#4a69bd] outline-none">
+                </div>
+
+                <!-- Table -->
+                <table class="w-full">
+                    <thead>
+                        <tr class="bg-gray-50">
+                            <th class="text-left py-3 px-4 font-semibold text-gray-600">Nom</th>
+                            <th class="text-left py-3 px-4 font-semibold text-gray-600">Date</th>
+                            <th class="text-left py-3 px-4 font-semibold text-gray-600">Status</th>
+                            <th class="text-left py-3 px-4 font-semibold text-gray-600">Action</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr class="border-b border-gray-200">
+                            <td class="py-3 px-4">Achraf amrani</td>
+                            <td class="py-3 px-4">27/10/2024 AT 16:15</td>
+                            <td class="py-3 px-4">Chat</td>
+                            <td class="py-3 px-4 space-x-2">
+                                <button class="text-[#4a69bd] hover:text-blue-700"> <a href="review.html">Review</a></button>
+                                <button class="text-red-500 hover:text-red-700">Delete</button>
+                            </td>
+                        </tr>
+                        <!-- Repeat similar rows for other entries -->
+                    </tbody>
+                </table>
+
+                <!-- Pagination -->
+                <div class="flex justify-center mt-6 space-x-2">
+                    <button class="px-4 py-2 bg-[#4a69bd] text-white rounded disabled:bg-gray-400" disabled>Précédent</button>
+                    <button class="px-4 py-2 bg-[#4a69bd] text-white rounded">1</button>
+                    <button class="px-4 py-2 bg-[#4a69bd] text-white rounded">2</button>
+                    <button class="px-4 py-2 bg-[#4a69bd] text-white rounded">3</button>
+                    <button class="px-4 py-2 bg-[#4a69bd] text-white rounded">Suivant</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // Function to load and display saved data
+        document.addEventListener('DOMContentLoaded', function() {
+            const savedData = localStorage.getItem('profileData');
+            if (savedData) {
+                const data = JSON.parse(savedData);
+                document.getElementById('info-nom').textContent = data.nom;
+                document.getElementById('info-prenom').textContent = data.prenom;
+                document.getElementById('info-ville').textContent = data.ville;
+                document.getElementById('info-quartier').textContent = data.quartier;
+                document.getElementById('info-disponibilite').textContent = data.disponibilite;
+                document.getElementById('info-service').textContent = data.service;
+            }
+        });
+
+        // Function to open the modify form
+        function openModifyForm() {
+            window.location.href = 'modifyprestataire.html';
+        }
+
+        // Function to open modal
+        function openDescriptionModal() {
+            const modal = document.getElementById('descriptionModal');
+            const textarea = document.getElementById('descriptionText');
+            const currentDescription = document.getElementById('descriptionDisplay').textContent;
+            textarea.value = currentDescription.trim();
+            modal.classList.remove('hidden');
+        }
+
+        // Function to save description
+        function saveDescription() {
+            const modal = document.getElementById('descriptionModal');
+            const textarea = document.getElementById('descriptionText');
+            const display = document.getElementById('descriptionDisplay');
+            
+            display.textContent = textarea.value;
+            modal.classList.add('hidden');
+        }
+
+        // Close modal when clicking outside
+        document.getElementById('descriptionModal').addEventListener('click', function(e) {
+            if (e.target === this) {
+                this.classList.add('hidden');
+            }
+        });
+    </script>
+
+    <!-- Description Modal -->
+    <div id="descriptionModal" class="fixed inset-0 bg-black bg-opacity-50 hidden">
+        <div class="flex items-center justify-center min-h-screen p-4">
+            <div class="bg-white rounded-lg w-[1000px] p-6 relative">
+                <!-- Modal Header -->
+                <div class="flex items-center text-[#4a69bd] mb-6">
+                    <i class="fas fa-pen mr-2"></i>
+                    <h2 class="text-lg font-medium">Modifier le description:</h2>
+                </div>
+
+                <!-- Modal Content -->
+                <div class="mb-6">
+                    <textarea id="descriptionText" rows="6" 
+                        class="w-full p-4 border border-gray-300 rounded-lg focus:ring-2 focus:ring-[#4a69bd] focus:border-[#4a69bd] outline-none"
+                    ></textarea>
+                </div>
+
+                <!-- Modal Footer -->
+                <div class="flex justify-center">
+                    <button id="saveDescriptionBtn"
+                        class="bg-[#4a69bd] text-white px-8 py-2 rounded-full hover:bg-[#3d5aa7] font-medium">
+                        Sauvegarder
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const modal = document.getElementById('descriptionModal');
+            const modifyBtn = document.getElementById('modifyDescriptionBtn');
+            const saveBtn = document.getElementById('saveDescriptionBtn');
+            const textarea = document.getElementById('descriptionText');
+            const displayText = document.getElementById('descriptionDisplay');
+
+            // Open modal
+            modifyBtn.addEventListener('click', function() {
+                textarea.value = displayText.textContent.trim();
+                modal.classList.remove('hidden');
+            });
+
+            // Save changes
+            saveBtn.addEventListener('click', function() {
+                displayText.textContent = textarea.value;
+                modal.classList.add('hidden');
+            });
+
+            // Close modal when clicking outside
+            modal.addEventListener('click', function(e) {
+                if (e.target === modal) {
+                    modal.classList.add('hidden');
+                }
+            });
+        });
+    </script>
+</body>
+</html>

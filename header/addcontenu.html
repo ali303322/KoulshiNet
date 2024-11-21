@@ -1,0 +1,265 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ajouter un Contenu</title>
+    
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <!-- Alpine.js -->
+    <script defer src="https://unpkg.com/alpinejs@3.x.x/dist/cdn.min.js"></script>
+    
+    <!-- Font Awesome -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
+</head>
+<body class="bg-gray-100">
+    <div class="flex min-h-screen">
+       <!-- Sidebar -->
+       <div class="w-80 bg-[#4a69bd] text-white">
+        <nav class="pt-12 px-16">
+            <!-- Demande -->
+            <a href="admindash.html" class="flex items-center space-x-4 text-lg mb-12">
+                <i class="fas fa-file-alt w-6"></i>
+                <span>Demande</span>
+            </a>
+
+            <!-- Gestion des prestataires -->
+            <a href="gestionPres.html" class="flex items-center space-x-4 text-lg mb-12">
+                <i class="fas fa-users w-6"></i>
+                <span>Gestion des prestataires</span>
+            </a>
+
+            <!-- Gestion des clients -->
+            <a href="gestionClient.html" class="flex items-center space-x-4 text-lg mb-12">
+                <i class="fas fa-user-friends w-6"></i>
+                <span>Gestion des clients</span>
+            </a>
+
+            <!-- Gestion des produits -->
+            <a href="gestionProduit.html" class="flex items-center space-x-4 text-lg mb-12">
+                <i class="fas fa-box w-6"></i>
+                <span>Gestion des produits</span>
+            </a>
+
+            <!-- Gestion de contenu -->
+            <a href="gestionContenu.html" class="flex items-center space-x-4 text-lg mb-12">
+                <i class="fas fa-file-alt w-6"></i>
+                <span>Gestion de contenu</span>
+            </a>
+
+            <!-- Logout Link -->
+            <div class="mt-auto pt-32">
+                <a href="apropo.html" class="flex items-center space-x-4 text-lg text-white/80 hover:text-white">
+                    <i class="fas fa-sign-out-alt w-6"></i>
+                    <span>Se déconnecter</span>
+                </a>
+            </div>
+        </nav>
+    </div>
+
+        <!-- Main Content -->
+        <div class="flex-1 p-8">
+            <div class="bg-white rounded-lg shadow-sm">
+                <!-- Header -->
+                <div class="px-6 py-4 flex justify-between items-center border-b">
+                    <h3 class="text-xl font-medium text-[#4a69bd]">Ajouter un Service</h3>
+                </div>
+
+                <!-- Form Container -->
+                <div class="p-6">
+                    <div class="max-h-[600px] overflow-y-auto pr-4" style="scrollbar-width: thin;">
+                        <form class="space-y-4" x-data="{ 
+                            typeInputs: [1], 
+                            avantageInputs: [1], 
+                            faqInputs: [1], 
+                            maxInputs: 10 
+                        }">
+                            <!-- Titre -->
+                            <div>
+                                <label class="block text-sm font-medium mb-2">Titre:</label>
+                                <input type="text" 
+                                       placeholder="Entrer le titre" 
+                                       class="w-full border rounded-full px-4 py-2 focus:outline-none focus:border-[#4a69bd]">
+                            </div>
+
+                            <!-- Slogan -->
+                            <div>
+                                <label class="block text-sm font-medium mb-2">Slogan:</label>
+                                <input type="text" 
+                                       placeholder="Entrer le slogan" 
+                                       class="w-full border rounded-full px-4 py-2 focus:outline-none focus:border-[#4a69bd]">
+                            </div>
+
+                            <!-- Image -->
+                            <div>
+                                <label class="block text-sm font-medium mb-2">Image:</label>
+                                <div class="relative">
+                                    <input type="file" class="hidden" id="serviceImage">
+                                    <label for="serviceImage" 
+                                           class="flex items-center justify-between w-full px-4 py-2 border rounded-full cursor-pointer hover:bg-gray-50">
+                                        <span class="text-gray-500">Telecharger l'image</span>
+                                        <i class="fas fa-cloud-upload-alt text-gray-400"></i>
+                                    </label>
+                                </div>
+                            </div>
+
+                            <!-- Introduction -->
+                            <div>
+                                <label class="block text-sm font-medium mb-2">introduction:</label>
+                                <textarea rows="4" 
+                                          placeholder="Entrer le texte"
+                                          class="w-full border rounded-2xl px-4 py-2 focus:outline-none focus:border-[#4a69bd]"></textarea>
+                            </div>
+
+                            <!-- Description -->
+                            <div>
+                                <label class="block text-sm font-medium mb-2">Description:</label>
+                                <textarea rows="4" 
+                                          placeholder="Entrer le texte"
+                                          class="w-full border rounded-2xl px-4 py-2 focus:outline-none focus:border-[#4a69bd]"></textarea>
+                            </div>
+
+                            <!-- Types de services section -->
+                            <div class="space-y-4">
+                                <div>
+                                    <label class="block text-sm font-medium mb-2">Types de services:</label>
+                                    <div class="relative">
+                                        <input type="file" class="hidden" id="serviceTypeImage">
+                                        <label for="serviceTypeImage" 
+                                               class="flex items-center justify-between w-full px-4 py-2 border rounded-full cursor-pointer hover:bg-gray-50">
+                                            <span class="text-gray-500">Telecharger l'image</span>
+                                            <i class="fas fa-cloud-upload-alt text-gray-400"></i>
+                                        </label>
+                                    </div>
+                                </div>
+
+                                <!-- Dynamic Type inputs -->
+                                <div class="space-y-2">
+                                    <template x-for="(input, index) in typeInputs" :key="index">
+                                        <div class="flex space-x-2">
+                                            <input type="text" 
+                                                   :placeholder="'Type ' + input"
+                                                   class="flex-1 border rounded-full px-4 py-2 focus:outline-none focus:border-[#4a69bd]">
+                                            
+                                            <button type="button"
+                                                    x-show="index > 0"
+                                                    @click.prevent="typeInputs = typeInputs.filter((_, i) => i !== index)"
+                                                    class="text-red-500 hover:text-red-700">
+                                                <i class="fas fa-minus-circle"></i>
+                                            </button>
+                                        </div>
+                                    </template>
+
+                                    <button type="button"
+                                            x-show="typeInputs.length < maxInputs"
+                                            @click.prevent="typeInputs.push(typeInputs.length + 1)"
+                                            class="mt-2 text-[#4a69bd] hover:text-[#364f9b] flex items-center">
+                                        <i class="fas fa-plus-circle mr-2"></i>
+                                        <span>Add Type</span>
+                                    </button>
+                                </div>
+                            </div>
+
+                            <!-- Pourquoi nous choisir -->
+                            <div>
+                                <label class="block text-sm font-medium mb-2">Pourquoi nous choisir:</label>
+                                <textarea rows="4" 
+                                          placeholder="Entrer le texte"
+                                          class="w-full border rounded-2xl px-4 py-2 focus:outline-none focus:border-[#4a69bd]"></textarea>
+                            </div>
+
+                            <!-- Avantages section -->
+                            <div class="space-y-4">
+                                <div>
+                                    <label class="block text-sm font-medium mb-2">Avantages:</label>
+                                    <div class="relative">
+                                        <input type="file" class="hidden" id="avantageImage">
+                                        <label for="avantageImage" 
+                                               class="flex items-center justify-between w-full px-4 py-2 border rounded-full cursor-pointer hover:bg-gray-50">
+                                            <span class="text-gray-500">Telecharger l'image</span>
+                                            <i class="fas fa-cloud-upload-alt text-gray-400"></i>
+                                        </label>
+                                    </div>
+                                </div>
+
+                                <!-- Dynamic Avantage inputs -->
+                                <div class="space-y-2">
+                                    <template x-for="(input, index) in avantageInputs" :key="index">
+                                        <div class="flex space-x-2">
+                                            <input type="text" 
+                                                   :placeholder="'Avantage ' + input"
+                                                   class="flex-1 border rounded-full px-4 py-2 focus:outline-none focus:border-[#4a69bd]">
+                                            
+                                            <button type="button"
+                                                    x-show="index > 0"
+                                                    @click.prevent="avantageInputs = avantageInputs.filter((_, i) => i !== index)"
+                                                    class="text-red-500 hover:text-red-700">
+                                                <i class="fas fa-minus-circle"></i>
+                                            </button>
+                                        </div>
+                                    </template>
+
+                                    <button type="button"
+                                            x-show="avantageInputs.length < maxInputs"
+                                            @click.prevent="avantageInputs.push(avantageInputs.length + 1)"
+                                            class="mt-2 text-[#4a69bd] hover:text-[#364f9b] flex items-center">
+                                        <i class="fas fa-plus-circle mr-2"></i>
+                                        <span>Add Avantage</span>
+                                    </button>
+                                </div>
+                            </div>
+
+                            <!-- FAQs section -->
+                            <div class="space-y-4">
+                                <label class="block text-sm font-medium mb-2">FAQs:</label>
+
+                                <!-- Dynamic FAQ inputs -->
+                                <div class="space-y-4">
+                                    <template x-for="(input, index) in faqInputs" :key="index">
+                                        <div class="space-y-2">
+                                            <div class="flex space-x-2">
+                                                <input type="text" 
+                                                       :placeholder="'Question'"
+                                                       class="flex-1 border rounded-full px-4 py-2 focus:outline-none focus:border-[#4a69bd]">
+                                                
+                                                <button type="button"
+                                                        x-show="index > 0"
+                                                        @click.prevent="faqInputs = faqInputs.filter((_, i) => i !== index)"
+                                                        class="text-red-500 hover:text-red-700">
+                                                    <i class="fas fa-minus-circle"></i>
+                                                </button>
+                                            </div>
+
+                                            <textarea rows="4" 
+                                                     placeholder="Reponse"
+                                                     class="w-full border rounded-2xl px-4 py-2 focus:outline-none focus:border-[#4a69bd]"></textarea>
+                                        </div>
+                                    </template>
+
+                                    <button type="button"
+                                            x-show="faqInputs.length < maxInputs"
+                                            @click.prevent="faqInputs.push(faqInputs.length + 1)"
+                                            class="mt-2 text-[#4a69bd] hover:text-[#364f9b] flex items-center">
+                                        <i class="fas fa-plus-circle mr-2"></i>
+                                        <span>Add FAQ</span>
+                                    </button>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+
+                    <!-- Submit Button -->
+                    <div class="flex justify-center mt-6 pt-4 border-t">
+                        <button type="submit" 
+                                class="px-12 py-2 bg-[#4a69bd] text-white rounded-full text-sm">
+                            <a href="gestionContenu.html">Sauvegarder</a>
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
