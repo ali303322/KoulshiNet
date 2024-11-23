@@ -1,5 +1,6 @@
 // import React from 'react'
 
+import { Link } from "react-router-dom";
 import Footer from "./Footer";
 import Header from "./Header";
 import img4 from './image/img4.jpeg'
@@ -145,14 +146,14 @@ export default function Service() {
         { icon: "fas fa-key", text: "Serrurier" },
         { icon: "fas fa-car", text: "Mécanique Auto" },
       ].map((service, index) => (
-        <a
-          href="#"
-          key={index}
-          className="flex items-center space-x-3 px-4 py-2 bg-[#f8fafc] rounded-lg border border-gray-200 hover:shadow-md transition-all"
-        >
-          <i className={`${service.icon} text-blue-500 w-5 h-5`}></i>
-          <span className="text-gray-700 text-sm">{service.text}</span>
-        </a>
+        <Link
+            to='/servicePageDesc' // Replace `service.link` with the appropriate path
+            key={index}
+            className="flex items-center space-x-3 px-4 py-2 bg-[#f8fafc] rounded-lg border border-gray-200 hover:shadow-md transition-all"
+            >
+            <i className={`${service.icon} text-blue-500 w-5 h-5`}></i>
+            <span className="text-gray-700 text-sm">{service.text}</span>
+        </Link>
       ))}
     </div>
   </div>

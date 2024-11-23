@@ -84,7 +84,7 @@ const Footer = () => {
                             <span className="font-bold">Société:</span> KOULCHINET
                         </li>
                         <li className="text-gray-300">
-                            <span className="font-bold">Adresse:</span> 123 rue Bahr Kazwine N 8 Harhoura, temara,
+                            <span className="font-bold">Adresse:</span> 123 rue Rabat,
                             Maroc
                         </li>
                         <li className="text-gray-300">
@@ -105,8 +105,8 @@ const Footer = () => {
                         koulchinet
                     </a>
                     . Powered by{" "}
-                    <a href="#" className="text-[#4A69BD]">
-                        CUDI09
+                    <a href="https://cudi09.com/" className="text-[#4A69BD]">
+                        https://cudi09.com/
                     </a>
                 </div>
             </div>
