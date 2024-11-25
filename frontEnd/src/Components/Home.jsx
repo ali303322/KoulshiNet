@@ -1,10 +1,11 @@
 // import React from 'react'
 
-import { useState } from "react";
+import {useState } from "react";
 import Footer from "./Footer";
 import Header from "./Header";
-import img2 from './image/img2.jpeg'
-import img1 from './image/img1.jpeg'
+import img2 from './image/img2.jpeg';
+import img1 from './image/img1.jpeg';
+// import axios from 'axios';
 
 export default function Home() {
     const [activeTab, setActiveTab] = useState(null);
@@ -12,6 +13,29 @@ export default function Home() {
     const toggleTab = (index) => {
     setActiveTab(activeTab === index ? null : index);
     }
+
+    // const [data, setData] = useState([]);
+
+    // useEffect(() => {
+    //     fetch('http://127.0.0.1:8000/api/villes', {
+    //         method: 'GET',
+    //         headers: {
+    //             'Content-Type': 'application/json',
+    //             'Accept': 'application/json',
+    //         },
+    //     })
+    //         .then(response => {
+    //             if (!response.ok) {
+    //                 throw new Error('Network response was not ok ' + response.statusText);
+    //             }
+    //             return response.json();
+    //         })
+    //         .then(data => console.log(data))
+    //         .catch(error => console.error('There was a problem with the fetch operation:', error));
+
+    // }, []);
+
+
   return (
     <div>
         <Header/>
@@ -50,8 +74,11 @@ export default function Home() {
                             className="w-full px-4 py-2.5 rounded-full border border-gray-300"
                         >
                             <option>Choisir votre ville</option>
-                            <option>Ville 1</option>
-                            <option>Ville 2</option>
+                            {/* {data.map((ville, index) => (
+                                <option key={index} value={ville.ville_principale}>
+                                    {ville.ville_principale}
+                                </option>
+                            ))} */}
                         </select>
                     </div>
 

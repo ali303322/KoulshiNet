@@ -16,7 +16,7 @@ return [
     |
     */
 
-    'default' => env('DB_CONNECTION', 'sqlite'),
+    'default' => env('DB_CONNECTION', 'mongodb'),
 
     /*
     |--------------------------------------------------------------------------
@@ -31,11 +31,12 @@ return [
 
         'connections' => [
 
-            'mongodb' => [
-            'driver' => 'mongodb',
-            'dsn' => env('DB_URI', 'mongodb+srv://username:password@<atlas-cluster-uri>/myappdb?retryWrites=true&w=majority'),
-            'database' => 'myappdb',
+        'mongodb' => [
+            'driver'   => 'mongodb',
+            'dsn'       => env('DB_URI'),  // Use the DB_URI from .env
+            'database' => env('DB_DATABASE', 'default'),  // Use the DB_DATABASE from .env
         ],
+
 
         'sqlite' => [
             'driver' => 'sqlite',
